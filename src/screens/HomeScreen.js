@@ -10,8 +10,8 @@ const HomeScreen = () => {
 
   return (
     <View style={styles.container}>
+    <SearchBar searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
       <HeaderTabs activeTab={activeTab} setActiveTab={setActiveTab} />
-      <SearchBar searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
       <DishList />
     </View>
   );

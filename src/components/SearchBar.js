@@ -1,18 +1,25 @@
-import React from 'react';
-import { View, TextInput, StyleSheet } from 'react-native';
-import Octicons from 'react-native-vector-icons/Ionicons';
+import { View, TextInput, StyleSheet, Image } from 'react-native';
 
 const SearchBar = ({ value, onChangeText }) => {
   return (
     <View style={styles.container}>
+      <Image
+        source={require('../assets/Group1000007397.png')}
+        size={12} 
+        style={styles.leftIcon}
+      />
       <TextInput
         style={styles.input}
-        placeholder="Search dish for your party......"
-        placeholderTextColor="#888"
+        placeholder="Search dish for your party..."
+        placeholderTextColor="#606060"
         value={value}
         onChangeText={onChangeText}
       />
-      <Octicons name="search" size={24} color="#000" />
+      <Image
+        source={require('../assets/fi_711319.png')} 
+        size={20}
+        style={styles.rightIcon}
+      />
     </View>
   );
 };
@@ -21,25 +28,30 @@ const styles = StyleSheet.create({
   container: {
     flexDirection: 'row',
     alignItems: 'center',
-    backgroundColor: '#FAFAFA',
-    borderRadius: 25,
-    paddingHorizontal: 12,
-    paddingVertical: 8,
+    backgroundColor: '#FFFFFF',
+    borderRadius: 12,
     borderWidth: 1,
-    borderColor: '#D3D3D3',
+    borderColor: '#ADADAD',
     marginHorizontal: 16,
-    marginVertical: 10,
+    height: 48,
+    paddingHorizontal: 18,
   },
-  icon: {
-    marginRight: 8,
+  leftIcon: {
+    width: 16,
+    height: 16,
+    marginRight: 12,
+  },
+  rightIcon: {
+    width: 20,
+    height: 20,
+    marginLeft: 12,
   },
   input: {
     flex: 1,
     fontSize: 14,
-    color: '#000',
-  },
-  searchIcon: {
-    marginLeft: 8,
+    color: '#000000',
+    fontFamily: 'Open Sans',
+    fontWeight: '500',
   },
 });
 

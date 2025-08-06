@@ -33,14 +33,26 @@ const HomeScreen = () => {
     navigation.navigate('Ingredients', { dish });
   };
 
-  // Add this handler to toggle selection for the modal
+  // Add this handler to toggle selection for the modal and update counts
   const handleToggleSelect = (dishId) => {
-    setSelectedIds((prev) =>
-      prev.includes(dishId)
-        ? prev.filter((id) => id !== dishId)
-        : [...prev, dishId]
-    );
+    const updated = selectedIds.includes(dishId)
+      ? selectedIds.filter((id) => id !== dishId)
+      : [...selectedIds, dishId];
+    setSelectedIds(updated);
     setSelectedDish((prev) => prev ? { ...prev, selected: !prev.selected } : prev);
+
+    // Update main course counts as in DishList
+    const dishesData = require('../data/dishes.json');
+    const selectedMainCourseDishes = dishesData.filter(
+      (dish) => dish.mealType === 'MAIN COURSE' && updated.includes(dish.id)
+    );
+    const totalMainCourseDishes = dishesData.filter(
+      (dish) => dish.mealType === 'MAIN COURSE'
+    ).length;
+    handleMainCourseCountsChange({
+      tabCount: totalMainCourseDishes,
+      selectedCount: selectedMainCourseDishes.length,
+    });
   };
 
   const closeIngredientsModal = () => {

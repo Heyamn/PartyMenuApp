@@ -126,7 +126,7 @@ const styles = StyleSheet.create({
     gap: 2,
     position: 'absolute',
     bottom: -10,
-    left: 8,
+    left: 13,
     display: 'flex',
     flexDirection: 'row',
     borderRadius: 6,

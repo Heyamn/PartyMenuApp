@@ -65,7 +65,7 @@ const DishList = ({
             onViewIngredients={() => onViewIngredients(item)}
           />
         )}
-        contentContainerStyle={{ padding: 16 }}
+        contentContainerStyle={{ padding: 16, paddingRight: 0 }}
         showsVerticalScrollIndicator={false}
       />
     </>
@@ -80,6 +80,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
     paddingHorizontal: 16,
     paddingVertical: 12,
+    paddingLeft: 16,
   },
   headerText: {
     fontSize: 16,

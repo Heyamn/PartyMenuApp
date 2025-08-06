@@ -58,7 +58,7 @@ const DishCard = ({ dish, onToggleSelect, onViewIngredients, onReadMore }) => {
       <View
         style={{
           height: 1,
-          backgroundColor: '#e0e0e0',
+          backgroundColor: '#F0F0F0',
           width: '98%',
           marginTop: 25,
         }}

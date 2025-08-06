@@ -25,13 +25,6 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
     paddingHorizontal: 16,
     paddingVertical: 15,
-    borderTopLeftRadius: 10,
-    borderTopRightRadius: 10,
-    elevation: 5, 
-    shadowColor: '#000',
-    shadowOffset: { width: 0, height: -3 }, 
-    shadowOpacity: 0.1,
-    shadowRadius: 5,
   },
   summaryRow: {
     flexDirection: 'row',
@@ -39,11 +32,6 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     marginBottom: 15,
     color:'#FFFFFF',
-    shadowColor: '#1C1C1C', 
-    shadowOffset: { width: 1, height: 0 }, 
-    shadowOpacity: 0.20, 
-    shadowRadius: 5, 
-    elevation: 5,
   },
   summaryText: {
     fontSize: 16,
@@ -57,7 +45,6 @@ const styles = StyleSheet.create({
   },
   continueButton: {
     backgroundColor: '#1C1C1C', 
-    borderRadius: 8,
     paddingVertical: 15,
     alignItems: 'center',
     justifyContent: 'center',

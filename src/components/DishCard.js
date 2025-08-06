@@ -60,8 +60,6 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
     padding: 16,
     marginVertical: 8,
-    border:'0 0 1 0',
-    elevation: 3,
   },
   row: {
     flexDirection: 'row',
@@ -113,7 +111,6 @@ const styles = StyleSheet.create({
     backgroundColor: '#FFFFFF',
     justifyContent: 'center',
     alignItems: 'center',
-    borderRadius: 6,
     gap: 2,
     position: 'absolute',
     bottom: -10,
@@ -130,7 +127,6 @@ const styles = StyleSheet.create({
   image: {
     width: 100,
     height: 100,
-    borderRadius: 12,
     backgroundColor: '#eee',
   },
   ingreText: {

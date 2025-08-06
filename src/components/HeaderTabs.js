@@ -121,8 +121,6 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     paddingVertical: 10,
     paddingHorizontal: 16,
-    borderBottomWidth: 1,
-    borderBottomColor: '#eee',
     gap: 44,
   },
   selectionText: {

@@ -10,7 +10,7 @@ const IconSwitch = ({ icon, value, onToggle, trackColor = '#eee', activeColor = 
       duration: 200,
       useNativeDriver: false,
     }).start();
-  }, [value]);
+  }, [value, anim]);
 
  
   const translateX = anim.interpolate({

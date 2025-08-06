@@ -85,6 +85,7 @@ const styles = StyleSheet.create({
   },
   readMore: {
     fontWeight: 'bold',
+    color:'#1C1C1C'
   },
   category: {
     color: '#FF8800',
@@ -98,7 +99,7 @@ const styles = StyleSheet.create({
     textAlign: 'center',
   },
   actions: {
-    marginTop: 12,
+    marginTop: -10,
     position: 'relative',
   },
   button: {
@@ -111,7 +112,7 @@ const styles = StyleSheet.create({
     gap: 2,
     position: 'absolute',
     bottom: -10,
-    left: 3,
+    left: 8,
     display: 'flex',
     flexDirection: 'row',
     marginBottom:5
@@ -122,9 +123,9 @@ const styles = StyleSheet.create({
     fontSize: 14,
   },
   image: {
-    width: 80,
-    height: 80,
-    borderRadius: 8,
+    width: 100,
+    height: 100,
+    borderRadius: 12,
     backgroundColor: '#eee',
   },
   ingreText: {

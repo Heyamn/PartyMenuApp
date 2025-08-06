@@ -4,14 +4,29 @@ import { useNavigation } from '@react-navigation/native';
 import DishCard from './DishCard';
 import dishesData from '../data/dishes.json';
 
-const DishList = () => {
+const DishList = ({ onMainCourseCountsChange }) => {
   const navigation = useNavigation();
   const [selectedIds, setSelectedIds] = useState([]);
 
   const handleToggleSelect = (id) => {
-    setSelectedIds((prev) =>
-      prev.includes(id) ? prev.filter((dishId) => dishId !== id) : [...prev, id]
+    const updated = selectedIds.includes(id)
+      ? selectedIds.filter((dishId) => dishId !== id)
+      : [...selectedIds, id];
+
+    setSelectedIds(updated);
+
+    const selectedMainCourseDishes = dishesData.filter(
+      (dish) => dish.mealType === 'MAIN COURSE' && updated.includes(dish.id)
     );
+
+    const totalMainCourseDishes = dishesData.filter(
+      (dish) => dish.mealType === 'MAIN COURSE'
+    ).length;
+
+    onMainCourseCountsChange({
+      tabCount: totalMainCourseDishes,
+      selectedCount: selectedMainCourseDishes.length,
+    });
   };
 
   const enrichedDishes = dishesData.map((dish) => ({

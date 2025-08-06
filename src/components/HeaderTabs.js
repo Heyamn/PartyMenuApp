@@ -7,7 +7,7 @@ import {
   Switch,
 } from 'react-native';
 
-const HeaderTabs = () => {
+const HeaderTabs = ({ mainCourseTabCount, mainCoursesSelected }) => {
   const [activeCategory, setActiveCategory] = useState('Main Course');
   const [isEnabledGreen, setIsEnabledGreen] = useState(false);
   const [isEnabledRed, setIsEnabledRed] = useState(false);
@@ -18,7 +18,7 @@ const HeaderTabs = () => {
   
   const categories = [
     { name: 'Starter', count: 0 },
-    { name: 'Main Course', count: 0 },
+    { name: 'Main Course', count: mainCourseTabCount },
     { name: 'Desert', count: 0 },
     { name: 'Sides', count: 0 },
   ];
@@ -48,7 +48,7 @@ const HeaderTabs = () => {
       </View>
 
       <View style={styles.selectionRow}>
-        <Text style={styles.selectionText}>Main Courses Selected ({categories.find(cat => cat.name === 'Main Course').count})</Text>
+        <Text style={styles.selectionText}>Main Courses Selected ({mainCoursesSelected})</Text>
         <View style={styles.toggleContainer}>
           
           <Switch

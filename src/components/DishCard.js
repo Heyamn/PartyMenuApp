@@ -11,7 +11,7 @@ const DishCard = ({ dish, onToggleSelect, onViewIngredients }) => {
             <Text style={styles.readMore}> Read more</Text>
           </Text>
 
-          <View style={styles.category}>
+          <TouchableOpacity style={styles.category} onPress={onViewIngredients}>
             <Image
               height={18}
               width={18}
@@ -19,7 +19,7 @@ const DishCard = ({ dish, onToggleSelect, onViewIngredients }) => {
               source={require('../assets/ingredient.png')}
             />
             <Text style={styles.ingreText}>Ingredient</Text>
-          </View>
+          </TouchableOpacity>
         </View>
         <View style={styles.actions}>
           {dish?.category?.image && (

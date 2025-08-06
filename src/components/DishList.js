@@ -1,11 +1,9 @@
 import { useState } from 'react';
-import { View, FlatList } from 'react-native';
-import { useNavigation } from '@react-navigation/native';
+import { FlatList } from 'react-native';
 import DishCard from './DishCard';
 import dishesData from '../data/dishes.json';
 
-const DishList = ({ onMainCourseCountsChange }) => {
-  const navigation = useNavigation();
+const DishList = ({ onMainCourseCountsChange, onViewIngredients }) => {
   const [selectedIds, setSelectedIds] = useState([]);
 
   const handleToggleSelect = (id) => {
@@ -35,21 +33,19 @@ const DishList = ({ onMainCourseCountsChange }) => {
   }));
 
   return (
-    <View style={{ padding: 16 }}>
-      <FlatList
-        data={enrichedDishes}
-        keyExtractor={(item) => item.id.toString()}
-        renderItem={({ item }) => (
-          <DishCard
-            dish={item}
-            onToggleSelect={handleToggleSelect}
-            onViewIngredients={() =>
-              navigation.navigate('Ingredients', { dish: item })
-            }
-          />
-        )}
-      />
-    </View>
+    <FlatList
+      data={enrichedDishes}
+      keyExtractor={(item) => item.id.toString()}
+      renderItem={({ item }) => (
+        <DishCard
+          dish={item}
+          onToggleSelect={handleToggleSelect}
+          onViewIngredients={() => onViewIngredients(item)}
+        />
+      )}
+      contentContainerStyle={{ padding: 16 }}
+      showsVerticalScrollIndicator={false}
+    />
   );
 };
 

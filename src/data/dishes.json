@@ -5,6 +5,18 @@
     "type": "VEG",
     "description": "Paneer cubes in spicy onion gravy with onions and capsicum cubes.",
     "image": null,
+    "ingredients": [
+      "Paneer cubes",
+      "Onions",
+      "Capsicum",
+      "Tomatoes",
+      "Ginger-garlic paste",
+      "Kashmiri red chili powder",
+      "Coriander powder",
+      "Garam masala",
+      "Oil",
+      "Salt"
+    ],
     "category": {
       "id": 1,
       "name": "North Indian",
@@ -25,6 +37,18 @@
     "type": "VEG",
     "description": "Paneer cubes in spicy onion gravy with onions and capsicum cubes.",
     "image": null,
+    "ingredients": [
+      "Paneer cubes",
+      "Onions",
+      "Capsicum",
+      "Tomatoes",
+      "Ginger-garlic paste",
+      "Kashmiri red chili powder",
+      "Coriander powder",
+      "Garam masala",
+      "Oil",
+      "Salt"
+    ],
     "category": {
       "id": 1,
       "name": "North Indian",
@@ -45,6 +69,18 @@
     "type": "VEG",
     "description": "Paneer cubes in spicy onion gravy with onions and capsicum cubes.",
     "image": null,
+    "ingredients": [
+      "Paneer cubes",
+      "Onions",
+      "Capsicum",
+      "Tomatoes",
+      "Ginger-garlic paste",
+      "Kashmiri red chili powder",
+      "Coriander powder",
+      "Garam masala",
+      "Oil",
+      "Salt"
+    ],
     "category": {
       "id": 1,
       "name": "North Indian",

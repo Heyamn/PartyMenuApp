@@ -1,15 +1,18 @@
 import { View, Text, StyleSheet, TouchableOpacity, Image } from 'react-native';
 
-const DishCard = ({ dish, onToggleSelect, onViewIngredients }) => {
+const DishCard = ({ dish, onToggleSelect, onViewIngredients, onReadMore }) => {
   return (
     <View style={styles.card}>
       <View style={styles.row}>
         <View style={styles.content}>
           <Text style={styles.name}>{dish.name}</Text>
-          <Text style={styles.description} numberOfLines={2}>
-            {dish.description}
-            <Text style={styles.readMore}> Read more</Text>
-          </Text>
+          <TouchableOpacity onPress={onReadMore}>
+            <Text style={styles.description} numberOfLines={2}>
+              {dish.description}
+
+              <Text style={styles.readMore}> Read more</Text>
+            </Text>
+          </TouchableOpacity>
 
           <TouchableOpacity style={styles.category} onPress={onViewIngredients}>
             <Image
@@ -38,8 +41,7 @@ const DishCard = ({ dish, onToggleSelect, onViewIngredients }) => {
               >
                 {dish.selected ? 'Remove' : 'Add'}
               </Text>
-
-              {!dish.selected && ( 
+              {!dish.selected && (
                 <Image
                   source={require('../assets/Vector.png')}
                   style={styles.icon}
@@ -57,9 +59,8 @@ const styles = StyleSheet.create({
   card: {
     backgroundColor: '#fff',
     padding: 16,
-    borderRadius: 12,
     marginVertical: 8,
-    shadowColor: '#000',
+    border:'0 0 1 0',
     elevation: 3,
   },
   row: {
@@ -77,6 +78,8 @@ const styles = StyleSheet.create({
     fontWeight: '700',
   },
   description: {
+    display: 'flex',
+    alignItems: 'center',
     color: '#7E7E7E',
     marginTop: 4,
     fontFamily: 'Open Sans',
@@ -84,8 +87,10 @@ const styles = StyleSheet.create({
     fontSize: 12,
   },
   readMore: {
-    fontWeight: 'bold',
-    color:'#1C1C1C'
+  
+    fontFamily:'Open Sans',
+    fontWeight:'600',
+    color: '#1C1C1C',
   },
   category: {
     color: '#FF8800',
@@ -115,7 +120,7 @@ const styles = StyleSheet.create({
     left: 8,
     display: 'flex',
     flexDirection: 'row',
-    marginBottom:5
+    marginBottom: 5,
   },
   buttonText: {
     color: '#73AE78',

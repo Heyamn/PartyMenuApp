@@ -12,7 +12,7 @@ const IconSwitch = ({ icon, value, onToggle, trackColor = '#eee', activeColor = 
     }).start();
   }, [value]);
 
-  // Icon moves from left (0) to right (22)
+ 
   const translateX = anim.interpolate({
     inputRange: [0, 1],
     outputRange: [0, 22],

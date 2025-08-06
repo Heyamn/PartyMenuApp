@@ -5,9 +5,12 @@ import {
   Image,
   StyleSheet,
   SafeAreaView,
-  ScrollView
+  ScrollView,
+  TouchableOpacity,
 } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
 const IngredientScreen = () => {
+  const navigation = useNavigation();
   const dish = {
     name: 'Fried Avocado Tacos...... ',
     description:
@@ -25,6 +28,16 @@ const IngredientScreen = () => {
 
   return (
     <SafeAreaView style={styles.container}>
+    <View style={{display:'flex', flexDirection:'row', alignItems:'center', gap:10, marginTop:30, marginLeft:20}}>
+      <TouchableOpacity onPress={() => navigation.goBack()}>
+      <Image
+        source={require('../assets/Group1000007397.png')}
+        size={12} 
+        style={styles.leftIcon}
+      />
+      </TouchableOpacity>
+      <Text style={{fontSize:17, fontWeight:'700', color:'#242424'}}>Ingredient list</Text>
+      </View>
       <ScrollView showsVerticalScrollIndicator={false}>
         {/* Dish header row */}
         <View style={styles.headerSection}>
@@ -53,7 +66,7 @@ const IngredientScreen = () => {
           />
         </View>
 
-        
+        {/* Ingredients box */}
         <View style={styles.ingredientsBox}>
            
           {ingredients.map((item, index) => (

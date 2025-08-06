@@ -1,10 +1,8 @@
-import { useState } from 'react';
-import { FlatList } from 'react-native';
+import { FlatList, Text } from 'react-native';
 import DishCard from './DishCard';
 import dishesData from '../data/dishes.json';
 
-const DishList = ({ onMainCourseCountsChange, onViewIngredients }) => {
-  const [selectedIds, setSelectedIds] = useState([]);
+const DishList = ({ onMainCourseCountsChange, onReadMore, onViewIngredients, selectedIds, setSelectedIds }) => {
 
   const handleToggleSelect = (id) => {
     const updated = selectedIds.includes(id)
@@ -33,6 +31,8 @@ const DishList = ({ onMainCourseCountsChange, onViewIngredients }) => {
   }));
 
   return (
+    <>
+    <Text>North Indian</Text>
     <FlatList
       data={enrichedDishes}
       keyExtractor={(item) => item.id.toString()}
@@ -40,12 +40,14 @@ const DishList = ({ onMainCourseCountsChange, onViewIngredients }) => {
         <DishCard
           dish={item}
           onToggleSelect={handleToggleSelect}
+          onReadMore={() => onReadMore(item)}
           onViewIngredients={() => onViewIngredients(item)}
         />
       )}
       contentContainerStyle={{ padding: 16 }}
       showsVerticalScrollIndicator={false}
     />
+    </>
   );
 };
 

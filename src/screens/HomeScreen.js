@@ -102,14 +102,14 @@ const HomeScreen = () => {
             style={customModalStyles.bottomSheet}
             onPress={() => {}}
           >
-            {selectedDish?.image ? (
+            {selectedDish?.category?.image ? (
               <Image
-                source={typeof selectedDish.image === 'string' && selectedDish.image.startsWith('http') ? { uri: selectedDish.image } : selectedDish.image}
+                source={{ uri: selectedDish.category.image }}
                 style={customModalStyles.dishImage}
-                resizeMode="cover"
+                resizeMode="contain"
               />
             ) : (
-              <Image source={require('../assets/ingre.png')} style={customModalStyles.dishImage} resizeMode="cover" />
+              <Image source={require('../assets/ingre.png')} style={customModalStyles.dishImage} resizeMode="contain" />
             )}
             <View style={customModalStyles.content}>
               <View style={customModalStyles.headerRow}>
@@ -225,6 +225,7 @@ const customModalStyles = StyleSheet.create({
     borderTopLeftRadius: 24,
     borderTopRightRadius: 24,
     marginBottom: 12,
+    resizeMode: 'contain',
   },
   content: {
     width: '100%',

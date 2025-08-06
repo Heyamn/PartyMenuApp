@@ -114,7 +114,7 @@ const styles = StyleSheet.create({
     textAlign: 'center',
   },
   actions: {
-    marginTop: -10,
+    marginTop: -15,
     position: 'relative',
   },
   button: {

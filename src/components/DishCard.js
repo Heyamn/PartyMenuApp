@@ -1,11 +1,20 @@
 import { View, Text, StyleSheet, TouchableOpacity, Image } from 'react-native';
+import VegIcon from '../assets/veg';
+import NonVegIcon from '../assets/nonVeg';
 
 const DishCard = ({ dish, onToggleSelect, onViewIngredients, onReadMore }) => {
   return (
     <View style={styles.card}>
       <View style={styles.row}>
         <View style={styles.content}>
-          <Text style={styles.name}>{dish.name}</Text>
+          <View style={styles.nameRow}>
+            <Text style={styles.name}>{dish.name}</Text>
+            {dish.type === 'VEG' ? (
+              <VegIcon size={16} />
+            ) : (
+              <NonVegIcon size={16} />
+            )}
+          </View>
           <TouchableOpacity onPress={onReadMore}>
             <Text style={styles.description} numberOfLines={2}>
               {dish.description}
@@ -66,6 +75,11 @@ const styles = StyleSheet.create({
   content: {
     flex: 1,
     paddingRight: 8,
+  },
+  nameRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 8,
   },
   name: {
     fontSize: 14,

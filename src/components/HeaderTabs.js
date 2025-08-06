@@ -4,15 +4,8 @@ import IconSwitch from './IconSwitch';
 import VegIcon from '../assets/veg';
 import NonVegIcon from '../assets/nonVeg';
 
-const HeaderTabs = ({ mainCourseTabCount, mainCoursesSelected }) => {
+const HeaderTabs = ({ mainCourseTabCount, mainCoursesSelected, vegFilter, nonVegFilter, onVegFilterToggle, onNonVegFilterToggle }) => {
   const [activeCategory, setActiveCategory] = useState('Main Course');
-  const [isEnabledGreen, setIsEnabledGreen] = useState(false);
-  const [isEnabledRed, setIsEnabledRed] = useState(false);
-
-  const toggleSwitchGreen = () =>
-    setIsEnabledGreen(previousState => !previousState);
-  const toggleSwitchRed = () =>
-    setIsEnabledRed(previousState => !previousState);
 
   const categories = [
     { name: 'Starter', count: 0 },
@@ -53,8 +46,8 @@ const HeaderTabs = ({ mainCourseTabCount, mainCoursesSelected }) => {
         <View style={styles.toggleContainer}>
           <View style={styles.iconBox}>
             <IconSwitch
-              value={isEnabledGreen}
-              onToggle={toggleSwitchGreen}
+              value={vegFilter}
+              onToggle={onVegFilterToggle}
               icon={<VegIcon size={20} />}
               activeColor="#539A64"
             />
@@ -62,8 +55,8 @@ const HeaderTabs = ({ mainCourseTabCount, mainCoursesSelected }) => {
           <View style={{ width: 6 }} />
           <View style={styles.iconBox}>
             <IconSwitch
-              value={isEnabledRed}
-              onToggle={toggleSwitchRed}
+              value={nonVegFilter}
+              onToggle={onNonVegFilterToggle}
               icon={<NonVegIcon size={20} />}
               activeColor="#FF941A"
             />

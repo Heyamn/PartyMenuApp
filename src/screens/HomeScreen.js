@@ -16,6 +16,8 @@ const HomeScreen = () => {
   const [mainCourseTabCount, setMainCourseTabCount] = useState(0);
   const [mainCoursesSelected, setMainCoursesSelected] = useState(0);
   const [selectedIds, setSelectedIds] = useState([]);
+  const [vegFilter, setVegFilter] = useState(false);
+  const [nonVegFilter, setNonVegFilter] = useState(false);
 
   const handleMainCourseCountsChange = ({ tabCount, selectedCount }) => {
     setMainCourseTabCount(tabCount);
@@ -60,6 +62,14 @@ const HomeScreen = () => {
     setSelectedDish(null);
   };
 
+  const handleVegFilterToggle = () => {
+    setVegFilter(!vegFilter);
+  };
+
+  const handleNonVegFilterToggle = () => {
+    setNonVegFilter(!nonVegFilter);
+  };
+
   return (
     <View style={styles.container}>
       <SearchBar searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
@@ -68,6 +78,10 @@ const HomeScreen = () => {
         setActiveTab={setActiveTab}
         mainCourseTabCount={mainCourseTabCount}
         mainCoursesSelected={mainCoursesSelected}
+        vegFilter={vegFilter}
+        nonVegFilter={nonVegFilter}
+        onVegFilterToggle={handleVegFilterToggle}
+        onNonVegFilterToggle={handleNonVegFilterToggle}
       />
       <View style={styles.dishListContainer}>
         <DishList
@@ -78,6 +92,8 @@ const HomeScreen = () => {
           onViewIngredients={handleViewIngredients}
           selectedIds={selectedIds}
           setSelectedIds={setSelectedIds}
+          vegFilter={vegFilter}
+          nonVegFilter={nonVegFilter}
         />
       </View>
       <View style={styles.summaryContainer}>

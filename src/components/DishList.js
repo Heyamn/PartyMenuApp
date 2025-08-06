@@ -8,6 +8,8 @@ const DishList = ({
   onViewIngredients,
   selectedIds,
   setSelectedIds,
+  vegFilter,
+  nonVegFilter,
 }) => {
   const handleToggleSelect = id => {
     const updated = selectedIds.includes(id)
@@ -30,10 +32,18 @@ const DishList = ({
     });
   };
 
-  const enrichedDishes = dishesData.map(dish => ({
-    ...dish,
-    selected: selectedIds.includes(dish.id),
-  }));
+  const enrichedDishes = dishesData
+    .filter(dish => {
+      if (!vegFilter && !nonVegFilter) return true; // Show all if both are off
+      if (vegFilter && nonVegFilter) return true; // Show all if both are on
+      if (vegFilter) return dish.type === 'VEG';
+      if (nonVegFilter) return dish.type === 'NON-VEG';
+      return true;
+    })
+    .map(dish => ({
+      ...dish,
+      selected: selectedIds.includes(dish.id),
+    }));
 
   return (
     <>

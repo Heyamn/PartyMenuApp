@@ -22,18 +22,18 @@ const HomeScreen = () => {
     setMainCoursesSelected(selectedCount);
   };
 
-  // Open popup for Read More
+
   const handleReadMore = (dish) => {
     setSelectedDish(dish);
     setIngredientsModalVisible(true);
   };
 
-  // Navigate to IngredientScreen for Ingredients button
+
   const handleViewIngredients = (dish) => {
     navigation.navigate('Ingredients', { dish });
   };
 
-  // Add this handler to toggle selection for the modal and update counts
+
   const handleToggleSelect = (dishId) => {
     const updated = selectedIds.includes(dishId)
       ? selectedIds.filter((id) => id !== dishId)
@@ -41,7 +41,7 @@ const HomeScreen = () => {
     setSelectedIds(updated);
     setSelectedDish((prev) => prev ? { ...prev, selected: !prev.selected } : prev);
 
-    // Update main course counts as in DishList
+
     const dishesData = require('../data/dishes.json');
     const selectedMainCourseDishes = dishesData.filter(
       (dish) => dish.mealType === 'MAIN COURSE' && updated.includes(dish.id)
@@ -143,7 +143,7 @@ const styles = StyleSheet.create({
   },
   dishListContainer: {
     flex: 1,
-    marginBottom: 100, // Space for the summary
+    marginBottom: 100,
   },
   summaryContainer: {
     position: 'absolute', 
@@ -160,7 +160,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
     borderTopLeftRadius: 20,
     borderTopRightRadius: 20,
-    height: '365', // 1/3 of screen height
+    height: '365',
     padding: 20,
   },
   modalHeader: {

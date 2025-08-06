@@ -32,22 +32,20 @@ const DishCard = ({ dish, onToggleSelect, onViewIngredients, onReadMore }) => {
             style={styles.button}
             onPress={() => onToggleSelect(dish.id)}
           >
-            <View style={styles.button}>
-              <Text
-                style={[
-                  styles.buttonText,
-                  dish.selected && { color: '#FF941A' },
-                ]}
-              >
-                {dish.selected ? 'Remove' : 'Add'}
-              </Text>
-              {!dish.selected && (
-                <Image
-                  source={require('../assets/Vector.png')}
-                  style={styles.icon}
-                />
-              )}
-            </View>
+            <Text
+              style={[
+                styles.buttonText,
+                dish.selected && { color: '#FF941A' },
+              ]}
+            >
+              {dish.selected ? 'Remove' : 'Add'}
+            </Text>
+            {!dish.selected && (
+              <Image
+                source={require('../assets/Vector.png')}
+                style={styles.icon}
+              />
+            )}
           </TouchableOpacity>
         </View>
       </View>
@@ -107,7 +105,7 @@ const styles = StyleSheet.create({
   },
   button: {
     width: 74,
-    height: 20,
+    height: 30,
     backgroundColor: '#FFFFFF',
     justifyContent: 'center',
     alignItems: 'center',
@@ -117,11 +115,20 @@ const styles = StyleSheet.create({
     left: 8,
     display: 'flex',
     flexDirection: 'row',
-    marginBottom: 5,
+    borderRadius: 6,
+    paddingTop: 6,
+    paddingRight: 8,
+    paddingBottom: 6,
+    paddingLeft: 8,
+    shadowColor: '#1C1C1C',
+    shadowOffset: { width: 0, height: 1 },
+    shadowOpacity: 0.15,
+    shadowRadius: 8,
+    elevation: 3,
   },
   buttonText: {
     color: '#73AE78',
-    fontWeight: '700',
+    fontWeight: '600',
     fontSize: 14,
   },
   image: {

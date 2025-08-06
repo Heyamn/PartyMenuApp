@@ -12,10 +12,13 @@ const DishCard = ({ dish, onToggleSelect, onViewIngredients }) => {
           </Text>
 
           <View style={styles.category}>
-            <Image height={18} width={18} style={{marginTop:2}} source={require('../assets/ingredient.png')} />
-            <Text style={styles.ingreText} >
-            Ingredient
-            </Text>
+            <Image
+              height={18}
+              width={18}
+              style={{ marginTop: 2 }}
+              source={require('../assets/ingredient.png')}
+            />
+            <Text style={styles.ingreText}>Ingredient</Text>
           </View>
         </View>
         <View style={styles.actions}>
@@ -26,12 +29,23 @@ const DishCard = ({ dish, onToggleSelect, onViewIngredients }) => {
             style={styles.button}
             onPress={() => onToggleSelect(dish.id)}
           >
-            <Text style={styles.buttonText}>
-              {dish.selected ? 'Remove' : 'Add'}
-            </Text>
-            <Image
-            source={require('../assets/Vector.png')}
-            />
+            <View style={styles.button}>
+              <Text
+                style={[
+                  styles.buttonText,
+                  dish.selected && { color: '#FF941A' },
+                ]}
+              >
+                {dish.selected ? 'Remove' : 'Add'}
+              </Text>
+
+              {!dish.selected && ( 
+                <Image
+                  source={require('../assets/Vector.png')}
+                  style={styles.icon}
+                />
+              )}
+            </View>
           </TouchableOpacity>
         </View>
       </View>
@@ -78,28 +92,34 @@ const styles = StyleSheet.create({
     marginTop: 8,
     fontWeight: '700',
     fontSize: 12,
-    gap:4,
-    display:'flex',
+    gap: 4,
+    display: 'flex',
     flexDirection: 'row',
-    textAlign:'center',
+    textAlign: 'center',
   },
   actions: {
     marginTop: 12,
+    position: 'relative',
   },
   button: {
-    width:74,
-    height:30,
+    width: 74,
+    height: 20,
     backgroundColor: '#FFFFFF',
-    paddingVertical: 6,
-    paddingHorizontal: 16,
+    justifyContent: 'center',
+    alignItems: 'center',
     borderRadius: 6,
-    gap:2,
-    alignSelf: 'flex-start',
+    gap: 2,
+    position: 'absolute',
+    bottom: -10,
+    left: 3,
+    display: 'flex',
+    flexDirection: 'row',
+    marginBottom:5
   },
   buttonText: {
     color: '#73AE78',
     fontWeight: '700',
-    fontSize:14,
+    fontSize: 14,
   },
   image: {
     width: 80,
@@ -107,11 +127,12 @@ const styles = StyleSheet.create({
     borderRadius: 8,
     backgroundColor: '#eee',
   },
-  ingreText:{
-    fontFamily:'Open Sans',
-    color:'#FF8800',
-    fontSize:12,
-  }
+  ingreText: {
+    fontFamily: 'Open Sans',
+    color: '#FF8800',
+    fontSize: 12,
+    fontWeight: 700,
+  },
 });
 
 export default DishCard;

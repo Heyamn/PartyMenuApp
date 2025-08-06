@@ -1,32 +1,139 @@
-// src/screens/IngredientScreen.js
 import React from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import {
+  View,
+  Text,
+  Image,
+  StyleSheet,
+  SafeAreaView,
+  ScrollView
+} from 'react-native';
+const IngredientScreen = () => {
+  const dish = {
+    name: 'Fried Avocado Tacos...... ',
+    description:
+      'Panco fried avocado, Mayo, panco fried avocado, Mayo, Panco fried avocado, avocado, Mayo, Panco fried avocado...',
+    image: require('../assets/ingre.png'),
+  };
 
-const IngredientScreen = ({ route }) => {
-  const { dish } = route.params;
+  const ingredients = [
+    { name: 'Cauliflower', quantity: '01 Pc' },
+    { name: 'Mustard oil', quantity: '1/2 litres' },
+     { name: 'Cauliflower', quantity: '01 Pc' },
+    { name: 'Tomato', quantity: '01 Pc' },
+    
+  ];
 
   return (
-    <View style={styles.container}>
-      <Text style={styles.title}>{dish.name}</Text>
-      <Text style={styles.description}>{dish.description}</Text>
-      {/* You can expand this with ingredients, category, etc. */}
-    </View>
+    <SafeAreaView style={styles.container}>
+      <ScrollView showsVerticalScrollIndicator={false}>
+        {/* Dish header row */}
+        <View style={styles.headerSection}>
+          <View style={styles.leftColumn}>
+            <Text style={styles.dishName}>{dish.name}</Text>
+            <Text style={styles.description} numberOfLines={3}>
+              {dish.description}
+            </Text>
+            <View style={{marginTop:70}}>
+               <Text style={styles.ingredientsTitle}>Ingredients</Text>
+          <Text style={styles.servesText}>For 2 people</Text>
+             <View
+                style={{
+                  height: 1,
+                  backgroundColor: '#e0e0e0',
+                  width:'180%'
+                }}
+              />
+            </View>
+          </View>
+
+          <Image
+            source={dish.image}
+            style={styles.dishImage}
+            resizeMode='contain'
+          />
+        </View>
+
+        
+        <View style={styles.ingredientsBox}>
+           
+          {ingredients.map((item, index) => (
+            <View key={index} style={styles.ingredientRow}>
+              <Text style={styles.ingredientName}>{item.name}</Text>
+              <Text style={styles.ingredientQuantity}>{item.quantity}</Text>
+            </View>
+          ))}
+        </View>
+      </ScrollView>
+    </SafeAreaView>
   );
 };
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    padding: 16,
+    backgroundColor: '#fff',
   },
-  title: {
-    fontSize: 24,
-    fontWeight: 'bold',
-    marginBottom: 8,
+  headerSection: {
+    flexDirection: 'row',
+    marginVertical: 16,
+    paddingVertical: 16,
+    marginLeft:20
+  },
+  leftColumn: {
+    flex: 1,
+    justifyContent: 'center',
+    marginTop:30,
+  
+  },
+  dishName: {
+    fontSize: 17,
+    fontWeight: '700',
+    color: '#333',
+    marginBottom: 10,
   },
   description: {
+    fontSize: 13,
+    color: '#666',
+    lineHeight: 20,
+    width:'100%'
+  },
+ dishImage: {
+  width: 180,
+  height: 260,
+  
+},
+  ingredientsBox: {
+    backgroundColor: '#fff',
+    marginHorizontal: 16,
+    paddingHorizontal: 16,
+    marginBottom: 32,
+  },
+  ingredientsTitle: {
+    fontSize: 20,
+    fontWeight: '700',
+    color: '#333',
+    marginBottom: 6,
+  },
+  servesText: {
+    fontSize: 14,
+    color: 'black',
+    marginBottom: 16,
+  },
+  ingredientRow: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    paddingVertical: 10,
+  
+  },
+  ingredientName: {
+    fontSize: 16,
+    color: '#333',
+    flex: 1,
+  },
+  ingredientQuantity: {
     fontSize: 16,
     color: '#555',
+    fontWeight: '500',
   },
 });
 

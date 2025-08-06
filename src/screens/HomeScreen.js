@@ -5,6 +5,8 @@ import HeaderTabs from '../components/HeaderTabs';
 import SearchBar from '../components/SearchBar';
 import SelectionSummary from '../components/SelectionSummary';
 import { useNavigation } from '@react-navigation/native';
+import VegIcon from '../assets/veg';
+import NonVegIcon from '../assets/nonVeg';
 
 const HomeScreen = () => {
   const navigation = useNavigation();
@@ -129,9 +131,21 @@ const HomeScreen = () => {
             )}
             <View style={customModalStyles.content}>
               <View style={customModalStyles.headerRow}>
-                <Text style={customModalStyles.dishName}>{selectedDish?.name}</Text>
+                <View style={customModalStyles.dishNameRow}>
+                  <Text style={customModalStyles.dishName}>{selectedDish?.name}</Text>
+                  {selectedDish?.type === 'VEG' ? (
+                    <VegIcon size={16} />
+                  ) : (
+                    <NonVegIcon size={16} />
+                  )}
+                </View>
                 <TouchableOpacity style={customModalStyles.removeButton} onPress={() => handleToggleSelect(selectedDish.id)}>
-                  <Text style={customModalStyles.removeButtonText}>{selectedIds.includes(selectedDish?.id) ? 'Remove' : 'Add'}</Text>
+                  <Text style={[
+                    customModalStyles.removeButtonText,
+                    selectedIds.includes(selectedDish?.id) && { color: '#FF941A' }
+                  ]}>
+                    {selectedIds.includes(selectedDish?.id) ? 'Remove' : 'Add'}
+                  </Text>
                 </TouchableOpacity>
               </View>
               <Text style={customModalStyles.categoryText}>{selectedDish?.category?.name}</Text>
@@ -245,22 +259,42 @@ const customModalStyles = StyleSheet.create({
     alignItems: 'center',
     marginBottom: 4,
   },
+  dishNameRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 8,
+    flex: 1,
+  },
   dishName: {
     fontSize: 20,
     fontWeight: '700',
     color: '#1C1C1C',
-    flex: 1,
   },
   removeButton: {
-    backgroundColor: '#FFF5EA',
-    paddingHorizontal: 16,
-    paddingVertical: 6,
+    width: 74,
+    height: 30,
+    backgroundColor: '#FFFFFF',
+    justifyContent: 'center',
+    alignItems: 'center',
+    gap: 2,
+    display: 'flex',
+    flexDirection: 'row',
+    borderRadius: 6,
+    paddingTop: 6,
+    paddingRight: 8,
+    paddingBottom: 6,
+    paddingLeft: 8,
+    shadowColor: '#1C1C1C',
+    shadowOffset: { width: 0, height: 1 },
+    shadowOpacity: 0.15,
+    shadowRadius: 8,
+    elevation: 3,
     marginLeft: 12,
   },
   removeButtonText: {
-    color: '#FF941A',
-    fontWeight: '700',
-    fontSize: 16,
+    color: '#73AE78',
+    fontWeight: '600',
+    fontSize: 14,
   },
   categoryText: {
     color: '#FF941A',

@@ -39,7 +39,6 @@ const IngredientScreen = () => {
       <Text style={{fontSize:17, fontWeight:'700', color:'#242424'}}>Ingredient list</Text>
       </View>
       <ScrollView showsVerticalScrollIndicator={false}>
-        {/* Dish header row */}
         <View style={styles.headerSection}>
           <View style={styles.leftColumn}>
             <Text style={styles.dishName}>{dish.name}</Text>
@@ -65,8 +64,6 @@ const IngredientScreen = () => {
             resizeMode='contain'
           />
         </View>
-
-        {/* Ingredients box */}
         <View style={styles.ingredientsBox}>
            
           {ingredients.map((item, index) => (

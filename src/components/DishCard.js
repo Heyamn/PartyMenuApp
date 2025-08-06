@@ -42,10 +42,7 @@ const DishCard = ({ dish, onToggleSelect, onViewIngredients, onReadMore }) => {
             onPress={() => onToggleSelect(dish.id)}
           >
             <Text
-              style={[
-                styles.buttonText,
-                dish.selected && { color: '#FF941A' },
-              ]}
+              style={[styles.buttonText, dish.selected && { color: '#FF941A' }]}
             >
               {dish.selected ? 'Remove' : 'Add'}
             </Text>
@@ -58,6 +55,14 @@ const DishCard = ({ dish, onToggleSelect, onViewIngredients, onReadMore }) => {
           </TouchableOpacity>
         </View>
       </View>
+      <View
+        style={{
+          height: 1,
+          backgroundColor: '#e0e0e0',
+          width: '98%',
+          marginTop: 25,
+        }}
+      />
     </View>
   );
 };
@@ -97,9 +102,8 @@ const styles = StyleSheet.create({
     fontSize: 12,
   },
   readMore: {
-  
-    fontFamily:'Open Sans',
-    fontWeight:'600',
+    fontFamily: 'Open Sans',
+    fontWeight: '600',
     color: '#1C1C1C',
   },
   category: {

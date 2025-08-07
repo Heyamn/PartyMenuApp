@@ -1,5 +1,5 @@
-import { useState, useRef } from 'react';
-import { View, StyleSheet, Modal, TouchableOpacity, Text, ScrollView, Image } from 'react-native';
+import { useState } from 'react';
+import { View, StyleSheet, Modal, TouchableOpacity, Text, Image } from 'react-native';
 import DishList from '../components/DishList';
 import HeaderTabs from '../components/HeaderTabs';
 import SearchBar from '../components/SearchBar';
@@ -103,7 +103,6 @@ const HomeScreen = () => {
           totalSelectedDishes={mainCoursesSelected}
         />
       </View>
-      {/* Read More Modal - Custom UI */}
       <Modal
         visible={ingredientsModalVisible}
         transparent={true}
@@ -155,9 +154,6 @@ const HomeScreen = () => {
                 <Text style={customModalStyles.ingredientText}>Ingredient</Text>
               </TouchableOpacity>
             </View>
-            <TouchableOpacity onPress={closeIngredientsModal} style={customModalStyles.closeButton}>
-              <Text style={{ fontSize: 24, color: '#7E7E7E', fontWeight: 'bold' }}>✕</Text>
-            </TouchableOpacity>
           </TouchableOpacity>
         </TouchableOpacity>
       </Modal>

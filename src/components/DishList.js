@@ -34,8 +34,8 @@ const DishList = ({
 
   const enrichedDishes = dishesData
     .filter(dish => {
-      if (!vegFilter && !nonVegFilter) return true; // Show all if both are off
-      if (vegFilter && nonVegFilter) return true; // Show all if both are on
+      if (!vegFilter && !nonVegFilter) return true; 
+      if (vegFilter && nonVegFilter) return true; 
       if (vegFilter) return dish.type === 'VEG';
       if (nonVegFilter) return dish.type === 'NON-VEG';
       return true;
@@ -65,7 +65,7 @@ const DishList = ({
             onViewIngredients={() => onViewIngredients(item)}
           />
         )}
-        contentContainerStyle={{ padding: 16, paddingRight: 0 }}
+        contentContainerStyle={{ paddingVertical:10}}
         showsVerticalScrollIndicator={false}
       />
     </>
